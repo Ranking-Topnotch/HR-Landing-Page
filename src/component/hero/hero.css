@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 60vh;
     background: linear-gradient(to right, #16213e, #0f3460);
     color: white;
     animation: fadeIn 2s ease-in;

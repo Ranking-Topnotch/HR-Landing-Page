@@ -1,9 +1,14 @@
+/* Base Navbar Styles */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 3rem;
-    background-color: #0f3460; /* Deep blue */
+    background-color: #0f3460;
+  }
+
+  li{
+    list-style: none;
   }
   
   .logo {
@@ -11,14 +16,16 @@
     color: white;
   }
   
+  /* Hamburger Icon Styling */
+  .hamburger {
+    display: none;
+    cursor: pointer;
+  }
+  
+  /* Navbar links - Hidden by default on smaller screens */
   .nav-links {
     display: flex;
     gap: 2rem;
-  }
-
-  li{
-    text-decoration: none;
-    list-style: none;
   }
   
   .nav-links a {
@@ -29,6 +36,42 @@
   }
   
   .nav-links a:hover {
-    color: #e94560; /* Light red */
+    color: #e94560;
+  }
+  
+  /* Mobile Menu Styles */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: flex; /* Now it's visible on small screens */
+    }
+  
+    /* Hide nav links on small screens initially */
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 70px;
+      right: 0;
+      background-color: #0f3460;
+      width: 100%;
+      height: calc(100vh - 70px);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+  
+    /* When open, show the nav links */
+    .nav-links.open {
+      display: flex;
+      transform: translateY(0);
+      opacity: 1;
+    }
+  
+    .nav-links a {
+      padding: 1rem;
+      font-size: 1.5rem;
+    }
   }
   
